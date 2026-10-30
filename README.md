@@ -4,7 +4,7 @@ Digite o nome de um artista, escolha na lista de sugestões e ouça a prévia de
 
 ## Site online
 
-**https://jornalolhe.github.io/formreport/**
+**https://jornalolhe.github.io/FormReport/**
 
 A publicação usa GitHub Pages, sem servidor e sem credenciais. No Pages a busca usa a fonte pública Deezer, que já fornece o link da prévia de cada faixa. Nenhum áudio é baixado ou hospedado pelo projeto.
 
