@@ -1,0 +1,17 @@
+{
+  "name": "formreport",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FormReport - busca por artista com sugestões e prévias de 30 segundos de cada álbum",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build:pages": "node scripts/build-pages.cjs",
+    "preview:pages": "node scripts/preview-pages.cjs",
+    "test": "node test/integration.cjs",
+    "check": "node --check server.js && node --check music.js && node --check script/music-data.js && node --check script/api.js && node --check script/runtime-config.js && node --check script/app.js && node --check scripts/build-pages.cjs && node --check scripts/preview-pages.cjs && node --check test/integration.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
