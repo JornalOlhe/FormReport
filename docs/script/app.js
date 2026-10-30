@@ -43,12 +43,17 @@ async function suggest(term) {
   searchController = new AbortController();
   try {
     const data = await api('/api/music/search?' + new URLSearchParams({ q: term }), searchController.signal);
-    if (input.value.trim() !== term) return data.artists;
+    if (input.value.trim() !== term) return null;
     suggestions = data.artists; active = -1; renderSuggestions();
     return suggestions;
   } catch (error) {
-    if (error.name !== 'AbortError') status(error.message, true);
-    return [];
+    if (error.name === 'AbortError') return null;
+    suggestions = []; active = -1;
+    list.innerHTML = `<li class="empty error">${esc(error.message)}</li>`;
+    list.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+    status(error.message, true);
+    return null; // falha na busca (diferente de "sem resultados")
   }
 }
 input.addEventListener('input', () => {
@@ -77,6 +82,7 @@ form.addEventListener('submit', async event => {
   if (term.length < 2) return status('Digite pelo menos 2 caracteres.', true);
   clearTimeout(typing);
   const found = await suggest(term);
+  if (found === null) return; // o erro já está na tela
   if (found.length) chooseArtist(found[0]); else status('Nenhum artista encontrado para essa busca.', true);
 });
 

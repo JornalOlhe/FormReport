@@ -119,6 +119,7 @@ main:focus{outline:0}
 .suggestions li{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:12px;cursor:pointer}
 .suggestions li[aria-selected="true"],.suggestions li[role="option"]:hover{background:var(--panel-3)}
 .suggestions .empty{color:var(--muted);cursor:default}
+.suggestions .empty.error{color:var(--danger)}
 .suggestions strong{display:block;font-weight:700}
 .suggestions small{color:var(--muted);text-transform:capitalize}
 .avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--panel-3)}
